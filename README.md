@@ -1,15 +1,17 @@
-## ba ![NPM version](https://img.shields.io/npm/v/ba.svg?style=flat)
+## @myfe/ba
 
-
+meituan basic authorization library
 
 ### Installation
 ```bash
-$ npm install ba
+$ npm install @myfe/ba
 ```
 
 ### Example
 ```js
-var ba = require('ba');
+var ba = require('@myfe/ba');
+
+
 ```
 
 ### API
