@@ -1,5 +1,5 @@
-import assert    from 'assert';
-import BasicAuth from '../';
+const assert    = require('assert');
+const BasicAuth = require('../');
 
 describe('BasicAuth', function() {
 
@@ -10,20 +10,14 @@ describe('BasicAuth', function() {
 
     const method = 'get'
     const target = 'https://my.magic-domain.edu/my-cool-api/path?my-dream-param=true&&'
+
     const targetBAHeaders = {
       Date          : 'Tue, 31 Mar 2015 16:00:00 GMT',
       Authorization : 'MWS ba-test:q+bH5U/XIO+QYaHAUEX98TPnJ/U='
     };
 
     it('should be true', function () {
-      assert.deepEqual(BasicAuth({
-        client_id     : client,
-        client_secret : secret
-      })({
-        method  : method,
-        path    : target,
-        date    : new Date(targetBAHeaders.Date)
-      }), targetBAHeaders);
+      assert.deepEqual(BasicAuth(client, secret)(method, target, new Date(targetBAHeaders.Date)), targetBAHeaders);
     });
 
   });

@@ -1,20 +1,14 @@
 {
   "name": "@myfe/ba",
-  "version": "1.0.0",
-  "main": "lib/ba.js",
-  "scripts": {
-    "compile": "babel -d lib/ src/",
-    "prepublish": "npm run compile",
-    "test": "mocha --compilers js:babel-core/register"
-  },
+  "version": "2.0.0",
+  "main": "ba.js",
   "author": "lsong",
   "license": "MIT",
   "description": "meituan basic authorization library",
-  "devDependencies": {
-    "babel-core": "latest",
-    "mocha": "latest"
+  "scripts": {
+    "test": "mocha"
   },
-  "babel": {
-    "stage": 0
+  "devDependencies": {
+    "mocha": "latest"
   }
 }
