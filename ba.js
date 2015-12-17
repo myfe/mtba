@@ -3,23 +3,31 @@ const crypto = require('crypto');
 
 /**
  * [exports MeituanBasicAuth]
- * @param  {[type]} client_id     [description]
- * @param  {[type]} client_secret [description]
- * @return {[type]}               [description]
+ * @param  {[string|object]} client_id      [client_id]
+ * @param  {[string]}        client_secret  [client_secret]
+ * @return {[function]}                     [description]
  */
 module.exports = function MeituanBasicAuth(client_id, client_secret) {
 
   const SPACE = ' ';
   const SPL   = ':';
   const EOL   = '\n';
+
+  if(typeof client_id == 'object'){
+    var o = client_id;
+    client_id       = o.client_id;
+    client_secret   = o.client_secret;
+  }
+
   /**
    * [Calculate Signature]
-   * @param  {[type]} method [description]
-   * @param  {[type]} path   [description]
-   * @param  {[type]} date   [description]
-   * @return {[type]}        [description]
+   * @param  {[string]} method [http verb]
+   * @param  {[string]} path   [http path]
+   * @param  {[date]} date     [datetime]
+   * @return {[object]}        [headers]
    */
   return function (method, path, date) {
+    if(arguments.length == 1) path = method;
     path    = url.parse(path || '/').pathname;
     method  = (method || 'GET').toUpperCase();
     date    = (date || new Date).toGMTString();

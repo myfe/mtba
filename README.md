@@ -4,18 +4,20 @@ meituan basic authorization library
 
 ### Installation
 ```bash
-$ npm install @myfe/ba
+$ npm install @myfe/ba --save
 ```
 
 ### Example
+
 ```js
 var ba = require('@myfe/ba');
 
+ba('client id', 'secret')('http://localhost/mtba')
 
 ```
 
 ### API
-check this file: `index.js`
+check this file: `ba.js`
 
 ### Contributing
 - Fork this Repo first
@@ -49,5 +51,3 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 ---
-![docor]()
-built upon love by [docor](git+https://github.com/turingou/docor.git) v0.3.0
