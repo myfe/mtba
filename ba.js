@@ -27,7 +27,10 @@ module.exports = function MeituanBasicAuth(client_id, client_secret) {
    * @return {[object]}        [headers]
    */
   return function (method, path, date) {
-    if(arguments.length == 1) path = method;
+    if(arguments.length == 1) {
+      path = method;
+      method = null;
+    };
     path    = url.parse(path || '/').pathname;
     method  = (method || 'GET').toUpperCase();
     date    = (date || new Date).toGMTString();
